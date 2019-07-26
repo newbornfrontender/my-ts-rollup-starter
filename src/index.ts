@@ -1,3 +1,4 @@
+import './index.css';
 import sum from './sum/sum';
 
 // eslint-disable-next-line no-console

@@ -1,5 +1,6 @@
 import resolve from 'rollup-plugin-node-resolve';
 import babel from 'rollup-plugin-babel';
+import postcss from 'rollup-plugin-postcss';
 import { terser } from 'rollup-plugin-terser';
 import { sync } from 'rimraf';
 
@@ -23,6 +24,16 @@ export default {
     }),
     babel({
       extensions: ['.ts'],
+    }),
+    postcss({
+      extract: true,
+      minimize: production,
+      sourceMap: true,
+      config: {
+        ctx: {
+          production,
+        },
+      },
     }),
     production &&
       terser({
