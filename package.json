@@ -35,13 +35,20 @@
     "rollup-plugin-postcss": "^2.0.3",
     "rollup-plugin-terser": "^5.1.1",
     "serve": "^11.1.0",
+    "stylelint": "^10.1.0",
+    "stylelint-config-prettier": "^5.2.0",
+    "stylelint-config-standard": "^18.3.0",
+    "stylelint-order": "^3.0.1",
+    "stylelint-prettier": "^1.1.1",
     "typescript": "^3.5.3"
   },
   "scripts": {
     "format": "prettier --write **/*.{html,js,ts,json,md} --ignore-path .gitignore",
     "typecheck": "tsc --noEmit",
-    "lint": "eslint . --fix --ext ts --ignore-path .gitignore",
-    "lint:check": "eslint --print-config src/index.ts | eslint-config-prettier-check",
+    "lint:css": "stylelint --fix **/*.css --ignore-path .gitignore",
+    "lint:css:check": "stylelint-config-prettier-check",
+    "lint:ts": "eslint . --fix --ext ts --ignore-path .gitignore",
+    "lint:ts:check": "eslint --print-config src/index.ts | eslint-config-prettier-check",
     "test": "jest",
     "serve": "serve public",
     "build": "rollup -c"
@@ -56,6 +63,18 @@
     "singleQuote": true,
     "trailingComma": "all",
     "arrowParens": "always"
+  },
+  "stylelint": {
+    "extends": [
+      "stylelint-config-standard",
+      "stylelint-prettier/recommended"
+    ],
+    "plugins": [
+      "stylelint-order"
+    ],
+    "rules": {
+      "order/properties-alphabetical-order": true
+    }
   },
   "eslintConfig": {
     "parserOptions": {
@@ -106,6 +125,10 @@
     }
   },
   "lint-staged": {
+    "**/*.css": [
+      "stylelint --fix --ignore-path .gitignore",
+      "git add"
+    ],
     "**/*.ts": [
       "eslint --fix --ignore-path .gitignore",
       "git add"
