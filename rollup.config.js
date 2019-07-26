@@ -1,12 +1,13 @@
 import resolve from 'rollup-plugin-node-resolve';
 import babel from 'rollup-plugin-babel';
 import postcss from 'rollup-plugin-postcss';
+import copy from 'rollup-plugin-copy';
 import { terser } from 'rollup-plugin-terser';
 import { sync } from 'rimraf';
 
 const production = !process.env.ROLLUP_WATCH;
 
-sync('public/**/*.{js,map}');
+sync('public');
 
 export default {
   input: 'src/index.ts',
@@ -34,6 +35,14 @@ export default {
           production,
         },
       },
+    }),
+    copy({
+      targets: [
+        {
+          src: 'src/index.html',
+          dest: 'public',
+        },
+      ],
     }),
     production &&
       terser({
