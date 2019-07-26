@@ -17,6 +17,7 @@
     "eslint": "^6.1.0",
     "eslint-config-airbnb-typescript": "^4.0.1",
     "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-compat": "^3.3.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jest": "^22.13.7",
     "eslint-plugin-prettier": "^3.1.0",
@@ -92,6 +93,7 @@
     "extends": [
       "plugin:@typescript-eslint/recommended",
       "airbnb-typescript/base",
+      "plugin:compat/recommended",
       "plugin:jest/all",
       "prettier/@typescript-eslint",
       "plugin:prettier/recommended"
