@@ -46,7 +46,7 @@
     "typescript": "^3.5.3"
   },
   "scripts": {
-    "format": "prettier --write **/*.{html,js,ts,json,md} --ignore-path .gitignore",
+    "format": "prettier --write **/*.{html,js,json,md} --ignore-path .gitignore",
     "typecheck": "tsc --noEmit",
     "lint:css": "stylelint --fix **/*.css --ignore-path .gitignore",
     "lint:css:check": "stylelint-config-prettier-check",
@@ -137,7 +137,7 @@
       "eslint --fix --ignore-path .gitignore",
       "git add"
     ],
-    "**/*.{html,js,ts,json,md}": [
+    "**/*.{html,js,json,md}": [
       "prettier --write --ignore-path .gitignore",
       "git add"
     ]
