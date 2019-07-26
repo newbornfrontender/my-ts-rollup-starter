@@ -1,0 +1,113 @@
+{
+  "name": "my-ts-rollup-starter",
+  "version": "1.0.0",
+  "repository": "https://github.com/newbornfrontender/my-ts-rollup-starter.git",
+  "author": "Infant Frontender <newbornfrontender@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-typescript": "^7.3.3",
+    "@commitlint/config-conventional": "^8.1.0",
+    "@types/jest": "^24.0.15",
+    "@typescript-eslint/eslint-plugin": "^1.13.0",
+    "@typescript-eslint/parser": "^1.13.0",
+    "babel-jest": "^24.8.0",
+    "commitlint": "^8.1.0",
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb-typescript": "^4.0.1",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jest": "^22.13.7",
+    "eslint-plugin-prettier": "^3.1.0",
+    "husky": "^3.0.1",
+    "jest": "^24.8.0",
+    "lint-staged": "^9.2.1",
+    "prettier": "^1.18.2",
+    "rimraf": "^2.6.3",
+    "rollup": "^1.17.0",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-terser": "^5.1.1",
+    "serve": "^11.1.0",
+    "typescript": "^3.5.3"
+  },
+  "scripts": {
+    "format": "prettier --write **/*.{html,js,ts,json,md} --ignore-path .gitignore",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint . --fix --ext ts --ignore-path .gitignore",
+    "lint:check": "eslint --print-config src/index.ts | eslint-config-prettier-check",
+    "test": "jest",
+    "serve": "serve public",
+    "build": "rollup -c"
+  },
+  "browserslist": [
+    "last 1 chrome version"
+  ],
+  "prettier": {
+    "printWidth": 100,
+    "useTabs": false,
+    "tabWidth": 2,
+    "singleQuote": true,
+    "trailingComma": "all",
+    "arrowParens": "always"
+  },
+  "eslintConfig": {
+    "parserOptions": {
+      "ecmaVersion": 2019,
+      "sourceType": "module"
+    },
+    "parser": "@typescript-eslint/parser",
+    "env": {
+      "es6": true,
+      "browser": true,
+      "jest": true
+    },
+    "extends": [
+      "plugin:@typescript-eslint/recommended",
+      "airbnb-typescript/base",
+      "plugin:jest/all",
+      "prettier/@typescript-eslint",
+      "plugin:prettier/recommended"
+    ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.ts$": "babel-jest"
+    }
+  },
+  "babel": {
+    "presets": [
+      "@babel/env",
+      "@babel/typescript"
+    ],
+    "env": {
+      "test": {
+        "presets": [
+          "@babel/env"
+        ]
+      }
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "**/*.ts": [
+      "eslint --fix --ignore-path .gitignore",
+      "git add"
+    ],
+    "**/*.{html,js,ts,json,md}": [
+      "prettier --write --ignore-path .gitignore",
+      "git add"
+    ]
+  }
+}
