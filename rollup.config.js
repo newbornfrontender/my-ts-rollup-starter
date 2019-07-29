@@ -52,5 +52,8 @@ export default {
         },
       }),
   ],
+  watch: {
+    clearScreen: false,
+  },
   treeshake: production,
 };

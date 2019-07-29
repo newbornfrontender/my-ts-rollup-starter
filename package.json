@@ -36,13 +36,15 @@
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-postcss": "^2.0.3",
     "rollup-plugin-terser": "^5.1.1",
-    "serve": "^11.1.0",
     "stylelint": "^10.1.0",
     "stylelint-config-prettier": "^5.2.0",
     "stylelint-config-standard": "^18.3.0",
     "stylelint-order": "^3.0.1",
     "stylelint-prettier": "^1.1.1",
     "typescript": "^3.5.3"
+  },
+  "dependencies": {
+    "sirv-cli": "^0.4.4"
   },
   "scripts": {
     "format": "prettier --write **/*.{html,js,json,md} --ignore-path .gitignore",
@@ -52,7 +54,8 @@
     "lint:ts": "eslint . --fix --ext ts --ignore-path .gitignore",
     "lint:ts:check": "eslint --print-config src/index.ts | eslint-config-prettier-check",
     "test": "jest",
-    "serve": "serve public",
+    "serve": "sirv public -D",
+    "start": "rollup -c -w",
     "build": "rollup -c"
   },
   "browserslist": [
