@@ -113,14 +113,7 @@
     "presets": [
       "@babel/env",
       "@babel/typescript"
-    ],
-    "env": {
-      "test": {
-        "presets": [
-          "@babel/env"
-        ]
-      }
-    }
+    ]
   },
   "husky": {
     "hooks": {
