@@ -124,15 +124,15 @@
     }
   },
   "lint-staged": {
-    "**/*.css": [
+    "*.css": [
       "stylelint --fix --ignore-path .gitignore",
       "git add"
     ],
-    "**/*.ts": [
+    "*.ts": [
       "eslint --fix --ignore-path .gitignore",
       "git add"
     ],
-    "**/*.{html,js,json,md}": [
+    "*.{html,js,json,md}": [
       "prettier --write --ignore-path .gitignore",
       "git add"
     ]
