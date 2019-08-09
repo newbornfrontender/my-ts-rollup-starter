@@ -111,8 +111,8 @@
   },
   "babel": {
     "presets": [
-      "@babel/env",
-      "@babel/typescript"
+      "@babel/typescript",
+      "@babel/env"
     ]
   },
   "husky": {
