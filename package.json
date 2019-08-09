@@ -14,6 +14,7 @@
     "@typescript-eslint/parser": "^1.13.0",
     "babel-jest": "^24.8.0",
     "commitlint": "^8.1.0",
+    "deasync-promise": "^1.0.1",
     "eslint": "^6.1.0",
     "eslint-config-airbnb-typescript": "^4.0.1",
     "eslint-config-prettier": "^6.0.0",
@@ -26,6 +27,7 @@
     "lint-staged": "^9.2.1",
     "postcss": "^7.0.17",
     "postcss-import": "^12.0.1",
+    "postcss-load-config": "^2.1.0",
     "postcss-preset-env": "^6.7.0",
     "postcss-use": "^3.0.0",
     "prettier": "^1.18.2",
@@ -51,7 +53,7 @@
     "typecheck": "tsc --noEmit",
     "lint:css": "stylelint --fix **/*.css --ignore-path .gitignore",
     "lint:css:check": "stylelint-config-prettier-check",
-    "lint:ts": "eslint . --fix --ext ts --ignore-path .gitignore",
+    "lint:ts": "eslint . --fix --ext ts",
     "lint:ts:check": "eslint --print-config src/index.ts | eslint-config-prettier-check",
     "test": "jest",
     "serve": "sirv public -D",
@@ -111,12 +113,6 @@
       "^.+\\.ts$": "babel-jest"
     }
   },
-  "babel": {
-    "presets": [
-      "@babel/env",
-      "@babel/typescript"
-    ]
-  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
@@ -129,7 +125,7 @@
       "git add"
     ],
     "*.ts": [
-      "eslint --fix --ignore-path .gitignore",
+      "eslint --fix",
       "git add"
     ],
     "*.{html,js,json,md}": [

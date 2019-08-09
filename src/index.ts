@@ -12,3 +12,13 @@ setTimeout(
     ),
   1000,
 );
+
+css`
+  p {
+    color: rgb(10% 10% 10%);
+
+    & span {
+      color: blue;
+    }
+  }
+`;
