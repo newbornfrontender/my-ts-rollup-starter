@@ -1,7 +1,6 @@
 import resolve from 'rollup-plugin-node-resolve';
 import babel from 'rollup-plugin-babel';
 import postcss from 'rollup-plugin-postcss';
-import copy from 'rollup-plugin-copy';
 import { terser } from 'rollup-plugin-terser';
 import { sync } from 'rimraf';
 
@@ -35,14 +34,6 @@ export default {
           production,
         },
       },
-    }),
-    copy({
-      targets: [
-        {
-          src: 'src/index.html',
-          dest: 'public',
-        },
-      ],
     }),
     production &&
       terser({
